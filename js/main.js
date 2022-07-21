@@ -1,3 +1,5 @@
 import './function.js';
-import './date.js';
+import {getComment, getPhoto} from './date.js';
 
+getComment();
+getPhoto();
