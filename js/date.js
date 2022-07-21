@@ -54,9 +54,8 @@ const createComment = () => ({
   name: getRandomArrayElement(NAMES),
 });
 
-const getPhoto = Array.from({length: 25}, createPhoto);
+const getPhoto = () => Array.from({length: 25}, createPhoto);
 
-const getComment = Array.from({length: 25}, createComment);
+const getComment = () => Array.from({length: 25}, createComment);
 
-console.log(getPhoto);
-console.log(getComment);
+export {getComment, getPhoto};
