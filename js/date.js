@@ -40,18 +40,19 @@ const COMMENT = [
 const getRandomNoRepeatId = getRandomId(1, 25);
 const getRandomNoRepeatUrl = getRandomId(1, 25);
 
-const createPhoto = () => ({
-  id: getRandomNoRepeatId(1,25),
-  url: `photos/${getRandomNoRepeatUrl(1,25)}.jpg`,
-  description: getRandomArrayElement(DESCRIPTION),
-  likes: getRandomNumber(15,200),
-});
-
 const createComment = () => ({
   id: getRandomNoRepeatId(1,1000),
   avatar: `img/avatar/${getRandomNumber(1,6)}.svg`,
   message : getRandomArrayElement(COMMENT),
   name: getRandomArrayElement(NAMES),
+});
+
+const createPhoto = () => ({
+  id: getRandomNoRepeatId(1,25),
+  url: `photos/${getRandomNoRepeatUrl(1,25)}.jpg`,
+  description: getRandomArrayElement(DESCRIPTION),
+  likes: getRandomNumber(15,200),
+  comments: Array.from({length: getRandomNumber(1,10)}, createComment),
 });
 
 const getPhoto = () => Array.from({length: 25}, createPhoto);
